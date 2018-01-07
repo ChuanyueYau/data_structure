@@ -50,3 +50,27 @@ def question1_1(s,t):
         
     return False
 
+"""
+Question 2
+
+Given a string a, find the longest palindromic substring contained in a. 
+Your function definition should look like question2(a), and return a string.
+"""
+
+def question2(a):
+    # dictionary stores all potential longest palindromic substring
+    substring = {}
+    # dictionary stores the index of all unique letter
+    letter = {}
+    maxLength = 1
+    for i,element in enumerate(a):
+        if element in letter:
+            currentLen = i - letter[element] + 1
+            if currentLen >= maxLength:
+                maxLength = currentLen
+                substring[a[letter[element]:i+1]] = currentLen
+        else:
+            letter[element] = a.index(element)
+    LPS = [sub for sub in substring if substring[sub]==maxLength]
+    return LPS
+
