@@ -28,3 +28,25 @@ def question1(s,t):
             return True
         
     return False
+
+# another solution of question 1
+
+def is_anagram(string, t_list):
+    """
+    function to test whether one string is the anagram of another
+    """
+    s_list = sorted(list(string))
+    return s_list == t_list
+
+def question1_1(s,t):
+    
+    t_list = sorted(list(t))
+    matchLength = len(t)
+    
+    for i in range(len(s)-matchLength+1):
+        substring = s[i:i+matchLength]
+        if is_anagram(substring, t_list):
+            return True
+        
+    return False
+
