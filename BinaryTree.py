@@ -56,3 +56,70 @@ print tree.search(6)
 # Test print_tree
 # Should be 1-2-4-5-3
 print tree.print_tree()
+
+
+
+"""
+BST: Binary Search Tree
+"""
+
+class BST(object):
+    def __init__(self, root):
+        self.root = Node(root)
+
+    def insert(self, new_val):
+        self.BST_insert(self.root, new_val)
+
+    def search(self, find_val):
+        return self.BST_search(self.root, find_val)
+        
+    def print_tree(self):
+        return  self.preorder_print(self.root, '')[:-1]
+        
+    def BST_search(self, start, find_val):
+        if start:
+            if start.value == find_val:
+                return True
+            elif start.value < find_val:
+                return self.BST_search(start.right, find_val)
+            else:
+                return self.BST_search(start.left, find_val)
+        return False
+        
+    def BST_insert(self, start, new_val):
+        if start.value < new_val:
+            if start.right:
+                self.BST_insert(start.right, new_val)
+            else:
+                start.right = Node(new_val)
+        else:
+            if start.left:
+                self.BST_insert(start.left, new_val)
+            else:
+                start.left = Node(new_val)
+            
+    def preorder_print(self, start, traversal):
+        if start:
+            traversal += (str(start.value) + '-')
+            traversal = self.preorder_print(start.left, traversal)
+            traversal = self.preorder_print(start.right, traversal)
+        return traversal
+    
+# Set up tree
+bst_tree = BST(4)
+
+# Insert elements
+bst_tree.insert(2)
+bst_tree.insert(1)
+bst_tree.insert(3)
+bst_tree.insert(5)
+
+# Check Insert construct correctly
+# Should be 4-2-1-3-5
+print bst_tree.print_tree()
+
+# Check search
+# Should be True
+print bst_tree.search(5)
+# Should be False
+print bst_tree.search(6)
