@@ -13,9 +13,9 @@ Code files include some test cases.
 
 ### Run
 
-In a terminal or command window, navigate to the top-level project directory `data_structure/` and run the following commands:
+For example, in a terminal or command window, navigate to the top-level project directory `data_structure/` and run the following commands:
 
-```python data_structure/BN.py```  
+```python data_structure/LinkedList.py```  
 
-This will run the `BN.py` file and execute code.
+This will run the `LinkedList.py` file and execute code.
 
