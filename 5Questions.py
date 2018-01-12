@@ -215,3 +215,47 @@ print question4([[0, 1, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 8, 0, 5)
 # test case 4: should print error message
 print question4([[0, 1, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [1, 0, 0, 0, 1], [0, 0, 0, 0, 0]], 3, 2, 4)
+
+
+"""
+Question 5
+Find the element in a singly linked list that's m elements from the end. For example, 
+if a linked list has 5 elements, the 3rd element from the end is the 3rd element. 
+The function definition should look like question5(ll, m), 
+where ll is the first node of a linked list and m is the "mth number from the end". 
+You should copy/paste the Node class below to use as a representation of a node in the linked list. 
+Return the value of the node at that position.
+"""
+
+class Node(object):
+    
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+        
+class LinkedList(object):
+    
+    def __init__(self,head=None):
+        self.head = head
+    
+    def append(self,new_element):
+        if self.head:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = new_element
+        else:
+            self.head = new_element
+            
+def question5(ll, m):
+    length = 1
+    current = ll
+    while current.next:
+        current = current.next
+        length += 1
+    if length < m:
+        return None
+    else:
+        for i in range(length-m):
+            ll = ll.next
+        return ll
