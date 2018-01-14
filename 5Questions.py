@@ -22,6 +22,12 @@ def question1(s,t):
     Given two strings s and t, 
     determine whether some anagram of t is a substring of s
     """
+    # handle non-string inputs
+    if type(s) != str or type(t) != str:
+        
+        error_msg = 'Error: input must be string!'
+        return error_msg
+    
     for item in permutation(t):
         
         if item in s:
@@ -39,6 +45,12 @@ def is_anagram(string, t_list):
     return s_list == t_list
 
 def question1_1(s,t):
+    
+    # handle non-string inputs
+    if type(s) != str or type(t) != str:
+        
+        error_msg = 'Error: input must be string!'
+        return error_msg
     
     t_list = sorted(list(t))
     matchLength = len(t)
