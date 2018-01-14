@@ -62,6 +62,26 @@ def question1_1(s,t):
         
     return False
 
+# test case
+def question1_test(s,t,expected_result):
+    if question1(s,t) == expected_result:
+        return 'test passed'
+    else:
+        return 'test failed'
+
+def test1():
+    print "Testing question 1..."
+    print "Example test case:", question1_test('udacity','ad',True)
+    print "Edge case (input not string):", question1_test(123, 32, 'Error: input must be string!')
+    print "Edge case (empty string):", question1_test('udacity', '', True)
+    print "Edge case (s = t):", question1_test('udacity', 'udacity', True)
+    print "Test Case (s=\'machine is powerful\',t=\'sip\'):", question1_test('machine is powerful', 'sip', False)
+    print "Test Case (s=\'machine is powerful\',t=\'s ip\'):", question1_test('machine is powerful', 's ip', True)
+    print "Test Case (s=\'udacitttty\',t=\'city\'):", question1_test('udacitttty', 'city', False)
+    
+test1()
+
+
 """
 Question 2
 
